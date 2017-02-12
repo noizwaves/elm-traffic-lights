@@ -1,0 +1,45 @@
+.buttons, .lights {
+    float: left;
+}
+
+.buttons {
+    background-color: lightgrey;
+    padding: 10px 30px;
+}
+
+.lights {
+    padding: 0px 30px;
+}
+
+.buttons div {
+    border: 1px solid darkgrey;
+    background-color: grey;
+    width: 75px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.buttons div:hover {
+    cursor: pointer;
+}
+
+.stopLight, .goLight, .waitLight {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    border-radius: 50px;
+}
+
+.stopLight.on {
+    background-color: red;
+}
+
+.goLight.on {
+    background-color: green;
+}
+
+.waitLight.on {
+    background-color: orange;
+}
