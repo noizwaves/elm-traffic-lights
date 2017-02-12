@@ -6,7 +6,6 @@ main =
     Html.program { init = init, view = view, update = update, subscriptions = subscriptions }
 
 
-
 -- MODEL
 
 type alias Model =
@@ -33,26 +32,30 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div [] [
-    stylesheet "style.css",
-    div [class "buttons"] [
-        div [onClick ToggleStop] [text "Stop"],
-        div [onClick ToggleWait] [text "Wait"],
-        div [onClick ToggleGo] [text "Go"]
-    ],
-    div [class "lights"] [
-        div [class ("stopLight" ++ (turnedOn model.stopLight))] [],
-        div [class ("waitLight" ++ (turnedOn model.waitLight))] [],
-        div [class ("goLight" ++ (turnedOn model.goLight))] []
+  div []
+    [ stylesheet "style.css"
+    , div [class "buttons"]
+        [ div [ onClick ToggleStop ] [ text "Stop" ]
+        , div [ onClick ToggleWait ] [ text "Wait" ]
+        , div [ onClick ToggleGo ] [ text "Go" ]
+        ]
+    , div [class "lights"]
+      [ light "stop" model.stopLight
+      , light "wait" model.waitLight
+      , light "go" model.goLight
+      ]
     ]
-  ]
 
-turnedOn : Bool -> String
-turnedOn on =
-  if on then
-    " on"
-  else
-    ""
+light : String -> Bool -> Html Msg
+light name on =
+  let
+    className =
+      if on then
+        name ++ " on"
+      else
+        name
+  in
+    div [class className] []
 
 stylesheet : String -> Html Msg
 stylesheet url =

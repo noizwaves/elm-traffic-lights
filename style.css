@@ -25,21 +25,21 @@
     cursor: pointer;
 }
 
-.stopLight, .goLight, .waitLight {
+.stop, .go, .wait {
     width: 100px;
     height: 100px;
     background-color: grey;
     border-radius: 50px;
 }
 
-.stopLight.on {
+.stop.on {
     background-color: red;
 }
 
-.goLight.on {
+.go.wait {
     background-color: green;
 }
 
-.waitLight.on {
+.wait.on {
     background-color: orange;
 }
